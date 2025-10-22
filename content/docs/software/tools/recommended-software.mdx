@@ -1,0 +1,15 @@
+---
+title: Recommended Software
+description: Different software that I've personally found useful as as a dev and that I would recommend to others
+---
+
+
+import { Badge } from 'src/components/ui/badge';
+import { IconDisplay } from 'src/components/ui/icon-display';
+
+import { recommended } from '@/data/tools.json';
+import { SortedCards } from '@/components/custom/sorted-cards';
+
+<Cards>
+  <SortedCards items={recommended} />
+</Cards>

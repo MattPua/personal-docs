@@ -1,0 +1,169 @@
+{
+  "recommended": [
+    {
+      "title": "Fumadocs",
+      "description": "Open source docs builder. Fumadocs built this site!",
+      "url": "https://fumadocs.dev/",
+      "icon": "HomeIcon",
+      "tags": ["Open source", "Documentation"]
+    },
+    {
+      "title": "Bruno",
+      "description": "Free alternative to Postman.",
+      "url": "https://www.usebruno.com/",
+      "icon": "Dog",
+      "tags": ["Open source", "API Testing"]
+    },
+    {
+      "title": "Sentry",
+      "description": "They do like a million things related to monitoring",
+      "url": "https://sentry.io/",
+      "icon": "Bug",
+      "tags": ["Errors", "Open source"]
+    },
+    {
+      "title": "Ngrok",
+      "description": "Exposes local environments to the internet. Useful for testing webhooks and other APIs.",
+      "url": "https://ngrok.com/",
+      "icon": "Globe",
+      "tags": ["Local Environment"]
+    },
+    {
+      "title": "Obsidian",
+      "description": "Open source, private note-taking app. Notion, but without all the bloat.",
+      "url": "https://obsidian.md/",
+      "icon": "File",
+      "tags": ["Open source", "Note-taking"]
+    },
+    {
+      "title": "Linear",
+      "description": "The best project management tool I've used. `CMD + K` has been perfected here.",
+      "url": "https://linear.app/",
+      "icon": "LineChart",
+      "tags": ["Project Management"]
+    },
+    {
+      "title": "Wispr Flow",
+      "description": "Voice to text, not like google voice to text that never gets anything right.",
+      "url": "https://wisprflow.ai/",
+      "icon": "Volume1",
+      "tags": ["Voice to text", "AI"]
+    },
+    {
+      "title": "Supabase",
+      "description": "They made databases sexy again.",
+      "url": "https://supabase.com/",
+      "icon": "Database",
+      "tags": ["Database", "Open source"]
+    },
+    {
+      "title": "Vercel",
+      "description": "One click deploy. Much good.",
+      "url": "https://vercel.com/",
+      "icon": "Globe",
+      "tags": ["Hosting", "Open source"]
+    },
+    {
+      "title": "DrizzleORM",
+      "description": "Type-safe database ORM for Typescript.",
+      "url": "https://orm.drizzle.team/",
+      "icon": "Database",
+      "tags": ["Database", "Open source"]
+    }, {
+      "title": "Inngest",
+      "description": "Make queues go brrrrrr",
+      "url": "https://www.inngest.com/",
+      "icon": "Zap",
+      "tags": ["Queues", "Open source"]
+    },
+    {
+      "title": "AI SDK",
+      "description": "want to use ai? npm install @ai-sdk/vercel",
+      "url": "https://ai-sdk.dev/",
+      "icon": "Brain",
+      "tags": ["AI", "Open source"]
+    },
+    {
+      "title":"shadcn",
+      "description": "Literally every site nowaday uses this.",
+      "url": "https://ui.shadcn.com/",
+      "icon": "Palette",
+      "tags": ["UI", "Open source"]
+    }
+  ],
+  "unused": [
+    {
+      "title": "Svix",
+      "description": "Webhooks as a service. Can be used to easily spin up endpoints to test webhooks.",
+      "url": "https://www.svix.com/",
+      "icon": "Webhook",
+      "tags": ["Webhooks", "API"]
+    },
+    {
+      "title": "dotenvx",
+      "description": "Dotenv but you can also use it to share your `.env` with other people??",
+      "url": "https://dotenvx.com/docs/ops/quickstart",
+      "icon": "Lock",
+      "tags": ["Dotenv", "Environment Variables"]
+    }
+  ],
+  "life": [
+
+    {
+      "title": "Ente Auth",
+      "description": "Open source 2FA. Has support for both Web + Mobile.",
+      "url": "https://ente.io/auth/",
+      "icon": "Lock",
+      "tags": ["2FA", "Open source"]
+    },
+    {
+      "title": "Spark",
+      "description": "Desktop email client. Use it to manage a lot of email accounts (like 8+).",
+      "url": "https://sparkmailapp.com/",
+      "icon": "Mail",
+      "tags": ["Email", "Desktop"]
+    },
+    {
+        "title": "Wanderlog",
+      "description": "Travel journal. Best app hands down for travel planning.",
+      "url": "https://wanderlog.com/",
+      "icon": "Globe",
+      "tags": ["Travel"]
+    },
+    {
+      "title": "Fit Notes",
+      "description": "Workout tracker. I use it to track my workouts and progress. Been tracking every workout on this since August 2018.",
+      "url": "https://www.fitnotesapp.com/",
+      "icon": "Dumbbell",
+      "tags": ["Fitness"]
+    },
+    {
+      "title": "Dashlane",
+      "description": "Password manager. They have a great deal on a family plan that you can use with up to 10 people. Also includes a VPN on the premium plan.",
+      "url": "https://www.dashlane.com/",
+      "icon": "Lock",
+      "tags": ["Password Manager"]
+    },
+    {
+      "title": "Splitwise",
+      "description": "Expense tracker for groups. Has a slightly weird round up feature that can be confusing at first, but otherwise a great way to track expenses with multiple poeple.",
+      "url": "https://www.splitwise.com/",
+      "icon": "CircleDollarSign",
+      "tags": ["Finances"]
+    },
+    {
+      "title": "Lunchmoney",
+      "description": "General personal finance tracker. Use it to track my overall portfolio and investments, been using it as long as I can remember.",
+      "url": "https://lunchmoney.app/",
+      "icon": "DollarSign",
+      "tags": ["Finances"]
+    },
+    {
+      "title": "Mihon",
+      "description": "For all the `weebs` out there, this is to read all your manga on the go.",
+      "url": "https://mihon.app/",
+      "icon": "BookOpen",
+      "tags": ["Manga"]
+    }
+  ]
+}
