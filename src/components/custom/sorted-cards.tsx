@@ -2,6 +2,7 @@
 import { IconDisplay } from "../ui/icon-display";
 import { Card } from "fumadocs-ui/components/card";
 import type { icons } from "lucide-react";
+import { Badge } from "../ui/badge";
 export function SortedCards({
   items,
 }: {
@@ -10,6 +11,7 @@ export function SortedCards({
     url: string;
     icon: keyof typeof icons;
     description: string;
+    tags?: string[];
   }[];
 }) {
   return items
@@ -23,6 +25,13 @@ export function SortedCards({
       >
         <div className="flex flex-col gap-4">
           <div dangerouslySetInnerHTML={{ __html: item.description }} />
+          <div className="flex flex-wrap gap-2">
+            {item.tags?.map((tag) => (
+              <Badge variant="outline" key={tag}>
+                {tag}
+              </Badge>
+            ))}
+          </div>
         </div>
       </Card>
     ));

@@ -69,7 +69,8 @@
       "url": "https://orm.drizzle.team/",
       "icon": "Database",
       "tags": ["Database", "Open source"]
-    }, {
+    },
+    {
       "title": "Inngest",
       "description": "Make queues go brrrrrr",
       "url": "https://www.inngest.com/",
@@ -84,7 +85,7 @@
       "tags": ["AI", "Open source"]
     },
     {
-      "title":"shadcn",
+      "title": "shadcn",
       "description": "Literally every site nowaday uses this.",
       "url": "https://ui.shadcn.com/",
       "icon": "Palette",
@@ -108,7 +109,13 @@
     }
   ],
   "life": [
-
+    {
+      "title": "Affinity Designer",
+      "description": "The best alternative to Photoshop. One time license fee with most of the features of Photoshop.",
+      "url": "https://affinity.serif.com/en-gb/designer/",
+      "icon": "Palette",
+      "tags": ["Design"]
+    },
     {
       "title": "Ente Auth",
       "description": "Open source 2FA. Has support for both Web + Mobile.",
@@ -124,7 +131,7 @@
       "tags": ["Email", "Desktop"]
     },
     {
-        "title": "Wanderlog",
+      "title": "Wanderlog",
       "description": "Travel journal. Best app hands down for travel planning.",
       "url": "https://wanderlog.com/",
       "icon": "Globe",
