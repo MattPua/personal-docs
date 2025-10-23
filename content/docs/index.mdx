@@ -4,7 +4,7 @@ description: A little about lil' ol' me
 ---
 
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
-import { Instagram, Linkedin, Dribbble, Github, Twitter, Book, Box } from 'lucide-react';
+import { Instagram, Linkedin, Dribbble, Github, Twitter, Book, Box, User, Briefcase } from 'lucide-react';
 import Link from 'fumadocs-core/link';
 import { Timeline } from '@/components/custom/timeline';
 
@@ -15,14 +15,18 @@ This is a dumping ground of all the little things I've learnt over time, and I w
 
 ## Who am I?
 
-<div className="flex flex-col gap-2">
-  <Link href="/docs/about/personally">Personally</Link>
-  <Link href="/docs/life/profesional">Professionally</Link>
-</div>
+<Cards>
+  <Card title="Personally" href="/docs/about/personally" icon={<User />}>
+  A little about me the human
+  </Card>
+  <Card title="Professionally" href="/docs/about/professionally" icon={<Briefcase />}>
+  A little about my professional life
+  </Card>
+</Cards>
 
 ## Socials
 
-Connect with me or see my different portfolios
+Connect with me
 
 <Cards>
   <Card title="LinkedIn" href="https://www.linkedin.com/in/matthewpua/" icon={<Linkedin />}>
@@ -37,6 +41,8 @@ Connect with me or see my different portfolios
 </Cards>
 
 ## Creatives
+
+Take a gander at my creative work
 
 <Cards>
   <Card title="Dribbble" href="https://dribbble.com/mattpua" icon={<Dribbble />}>
