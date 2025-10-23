@@ -1,27 +1,55 @@
 ---
 title: Welcome!
-description: Welcome to what?
+description: Chapter 1 - Who am I?
 ---
 
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 import { Instagram, Linkedin, Dribbble, Github, Twitter, Book } from 'lucide-react';
 import Link from 'fumadocs-core/link';
+import { Timeline } from '@/components/custom/timeline';
 
-# Welcome to my documentation!
+You have reached the documentation of Matt Pua. Inspired by friends and people I've seen online posting about their life beyond what looks good on Social.
 
-You have reached the documentation of Matt Pua. This is a dumping ground of all the little things I've learnt over time, and I wanted to start writing it all down, before I forget it all.
+This is a dumping ground of all the little things I've learnt over time, and I wanted to start writing it all down, <ins>**because surely**</ins>, there's at least one thing in here that's useful to someone.
 
 
 ## Who am I?
 
-The boring stuff:
+The work-related stuff:
 
-Developer & second time founder in Toronto, Canada. 
+Developer & 2x founder in Toronto, Canada 🇨🇦
 
 Co-founder at [Cloudglue](https://cloudglue.dev) and [ArtemisCalendar](https://artemiscalendar.com). 
 
-Previously engineering at multiple startups, including Roofr, & Pixlee, founding engineer at Bird&Be, and an early stint as a tech consultant at Slalom.
+Previously engineering at multiple startups, including Roofr, Pixlee, founding engineer at Bird&Be, and an early stint as a tech consultant at Slalom.
 
-The slightly less boring stuff:
+<Accordions>
+  <Accordion title="A little career timeline">
+  <Timeline items={[
+    { date: "2011", text: "Start studying Computer Engineering at the University of Toronto" },
+    { date: "2012", text: "Do something dumb and do a free internship at a startup with Ruby on Rails" },
+    { date: "2014", text: "Take a year off school to work at a telecom startup doing Java" },
+    { date: "2016", text: "Graduate and start working as a front end developer, doing <strong>AngularJS</strong>, before React was popular" },
+    { date: "2017", text: "moved over to <strong>Angular2</strong> because it was the new cool thing" },
+    { date: "2017", text: "sat next to a dude who really wanted to talk about Jenkins who introduced me to the fun world of CI/CD" },
+    { date: "2017", text: "Become a 'AWS Architect' without actually passing the exam" },
+    { date: "2018", text: "eventually discovered <strong>TypeScript</strong>, switched from Angular to React" },
+    { date: "2019", text: "Join an exicting new startup for exactly 4 weeks before being laid off because they ran out of money" },
+    { date: "2019", text: "Join a different company and move into <strong>BackboneJS</strong> as a result" },
+    { date: "2019", text: "at same time, decide to start a company with a friend about <strong>Women's health</strong> of all things because of connections, and have that run in the background" },
+    { date: "2021", text: "decide thats not fun, and move back into React" },
+    { date: "2021", text: "become a founding engineer at a ecommerce company and discover <strong>NextJS</strong> for a couple years" },
+    { date: "2023", text: "decide want to go back to doing front end specific work and move to a different startup" },
+    { date: "2024", text: "know nothing about videos or AI but decide to help cofound a company about that" },
+    { date: "2025", text: "decide to start this site to document my life in the way I know how to do best" },
+    {date: 'now', text: 'living life in Toronto, Canada'}
+  ]} />
+  </Accordion>
+</Accordions>
+
+The maybe more interesting/fun stuff:
+
+
 
 
 ## Socials
