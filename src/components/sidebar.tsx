@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
+/** biome-ignore-all lint/a11y/useKeyWithClickEvents: <explanation> */
 'use client';
 import { ChevronDown, ExternalLink } from 'lucide-react';
 import { usePathname } from 'fumadocs-core/framework';
@@ -22,7 +24,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from './ui/collapsible';
-import { type ScrollAreaProps } from '@radix-ui/react-scroll-area';
 import { useSidebar } from 'fumadocs-ui/contexts/sidebar';
 import { cva } from 'class-variance-authority';
 import type {
@@ -234,7 +235,7 @@ export function SidebarFooter(props: ComponentProps<'div'>) {
   );
 }
 
-export function SidebarViewport(props: ScrollAreaProps) {
+export function SidebarViewport(props: ComponentProps<typeof ScrollArea>) {
   return (
     <ScrollArea {...props} className={cn('h-full', props.className)}>
       <ScrollViewport
@@ -477,9 +478,9 @@ export function SidebarPageTree(props: {
     ): ReactNode[] {
       return items.map((item, i) => {
         if (item.type === 'separator') {
-          if (Separator) return <Separator key={i} item={item} />;
+          if (Separator) return <Separator key={item.$id} item={item} />;
           return (
-            <SidebarSeparator key={i} className={cn(i !== 0 && 'mt-6')}>
+            <SidebarSeparator key={item.$id} className={cn(i !== 0 && 'mt-6')}>
               {item.icon}
               {item.name}
             </SidebarSeparator>
@@ -491,12 +492,12 @@ export function SidebarPageTree(props: {
 
           if (Folder)
             return (
-              <Folder key={i} item={item} level={level}>
+              <Folder key={item.$id} item={item} level={level}>
                 {children}
               </Folder>
             );
           return (
-            <PageTreeFolder key={i} item={item}>
+            <PageTreeFolder key={item.$id} item={item}>
               {children}
             </PageTreeFolder>
           );
