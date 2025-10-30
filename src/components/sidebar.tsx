@@ -17,13 +17,13 @@ import {
 import Link, { type LinkProps } from 'fumadocs-core/link';
 import { useOnChange } from 'fumadocs-core/utils/use-on-change';
 import { cn } from '../lib/cn';
-import { ScrollArea, ScrollViewport } from './ui/scroll-area';
+import { ScrollArea, ScrollViewport } from './ui/shadcn/scroll-area';
 import { isActive } from '../lib/is-active';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from './ui/collapsible';
+} from './ui/shadcn/collapsible';
 import { useSidebar } from 'fumadocs-ui/contexts/sidebar';
 import { cva } from 'class-variance-authority';
 import type {

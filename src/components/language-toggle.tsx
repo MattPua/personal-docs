@@ -5,9 +5,9 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from './ui/popover';
+} from './ui/shadcn/popover';
 import { cn } from '../lib/cn';
-import { buttonVariants } from './ui/button';
+import { buttonVariants } from './ui/shadcn/button';
 
 export type LanguageSelectProps = ButtonHTMLAttributes<HTMLButtonElement>;
 

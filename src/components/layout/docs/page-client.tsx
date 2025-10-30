@@ -26,9 +26,9 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '../../ui/collapsible';
+} from '@/ui/shadcn/collapsible';
 import { useSidebar } from 'fumadocs-ui/contexts/sidebar';
-import { useTOCItems } from '../../ui/toc';
+import { useTOCItems } from '@/ui/fuma-docs/toc';
 import { useActiveAnchor } from 'fumadocs-core/toc';
 
 const TocPopoverContext = createContext<{

@@ -1,10 +1,10 @@
 'use client';
 import * as Primitive from 'fumadocs-core/toc';
 import { type ComponentProps, useEffect, useRef, useState } from 'react';
-import { cn } from '../../lib/cn';
+import { cn } from '../../../lib/cn';
 import { TocThumb } from './toc-thumb';
 import { useTOCItems } from './toc';
-import { mergeRefs } from '../../lib/merge-refs';
+import { mergeRefs } from '../../../lib/merge-refs';
 import { useI18n } from 'fumadocs-ui/contexts/i18n';
 
 export default function ClerkTOCItems({

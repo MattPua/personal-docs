@@ -18,7 +18,8 @@
     "paths": {
       "@/.source": ["./.source/index.ts"],
       "@/*": ["./src/*"],
-      "@/data/*": ["./data/*"]
+      "@/data/*": ["./data/*"],
+      "@/ui/*": ["./src/components/ui/*"]
     },
     "plugins": [
       {

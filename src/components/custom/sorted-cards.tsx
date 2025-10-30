@@ -1,8 +1,8 @@
 /** biome-ignore-all lint/security/noDangerouslySetInnerHtml: <explanation> */
-import { IconDisplay } from "../ui/icon-display";
+import { IconDisplay } from "../ui/shadcn/icon-display";
 import { Card } from "fumadocs-ui/components/card";
 import type { icons } from "lucide-react";
-import { Badge } from "../ui/badge";
+import { Badge } from "../ui/shadcn/badge";
 export function SortedCards({
   items,
 }: {
