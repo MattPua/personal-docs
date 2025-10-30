@@ -13,12 +13,11 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
-    "utils": "@/lib/utils",
+    "utils": "@/lib/cn",
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
   "registries": {
-    "@shadcn": "https://ui.shadcn.com/r/{name}.json"
   }
 }
