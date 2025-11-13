@@ -1,44 +1,46 @@
-'use client';
+"use client";
 
 import {
   type ComponentProps,
   Fragment,
   useEffect,
+  useEffectEvent,
+  createContext,
   useMemo,
   useRef,
   useState,
-} from 'react';
-import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
-import Link from 'fumadocs-core/link';
-import { cn } from '../../../lib/cn';
-import { useI18n } from 'fumadocs-ui/contexts/i18n';
-import { useTreeContext, useTreePath } from 'fumadocs-ui/contexts/tree';
-import type * as PageTree from 'fumadocs-core/page-tree';
-import { createContext, usePathname } from 'fumadocs-core/framework';
+  use,
+} from "react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "fumadocs-core/link";
+import { cn } from "@/lib/cn";
+import { useI18n } from "fumadocs-ui/contexts/i18n";
+import { useTreeContext, useTreePath } from "fumadocs-ui/contexts/tree";
+import type * as PageTree from "fumadocs-core/page-tree";
+import { usePathname } from "fumadocs-core/framework";
 import {
   type BreadcrumbOptions,
   getBreadcrumbItemsFromPath,
-} from 'fumadocs-core/breadcrumb';
-import { useNav } from 'fumadocs-ui/contexts/layout';
-import { isActive } from '../../../lib/is-active';
-import { useEffectEvent } from 'fumadocs-core/utils/use-effect-event';
+} from "fumadocs-core/breadcrumb";
+import { useNav } from "fumadocs-ui/contexts/layout";
+import { isActive } from "@/lib/is-active";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/ui/shadcn/collapsible';
-import { useSidebar } from 'fumadocs-ui/contexts/sidebar';
-import { useTOCItems } from '@/ui/fuma-docs/toc';
-import { useActiveAnchor } from 'fumadocs-core/toc';
+} from "@/components/ui/shadcn/collapsible";
+import { useSidebar } from "fumadocs-ui/contexts/sidebar";
+import { useTOCItems } from "@/components/ui/fuma-docs/toc";
+import { useActiveAnchor } from "fumadocs-core/toc";
 
 const TocPopoverContext = createContext<{
   open: boolean;
   setOpen: (open: boolean) => void;
-}>('TocPopoverContext');
+} | null>(null);
 
-export function PageTOCPopoverTrigger(props: ComponentProps<'button'>) {
+export function PageTOCPopoverTrigger(props: ComponentProps<"button">) {
   const { text } = useI18n();
-  const { open } = TocPopoverContext.use();
+  const { open } = use(TocPopoverContext)!;
   const items = useTOCItems();
   const active = useActiveAnchor();
   const selected = useMemo(
@@ -52,29 +54,29 @@ export function PageTOCPopoverTrigger(props: ComponentProps<'button'>) {
     <CollapsibleTrigger
       {...props}
       className={cn(
-        'flex w-full h-(--fd-tocnav-height) items-center text-sm text-fd-muted-foreground gap-2.5 px-4 py-2.5 text-start focus-visible:outline-none [&_svg]:size-4 md:px-6',
+        "flex w-full h-(--fd-tocnav-height) items-center text-sm text-fd-muted-foreground gap-2.5 px-4 py-2.5 text-start focus-visible:outline-none [&_svg]:size-4 md:px-6",
         props.className,
       )}
     >
       <ProgressCircle
         value={(selected + 1) / Math.max(1, items.length)}
         max={1}
-        className={cn('shrink-0', open && 'text-fd-primary')}
+        className={cn("shrink-0", open && "text-fd-primary")}
       />
       <span className="grid flex-1 *:my-auto *:row-start-1 *:col-start-1">
         <span
           className={cn(
-            'truncate transition-all',
-            open && 'text-fd-foreground',
-            showItem && 'opacity-0 -translate-y-full pointer-events-none',
+            "truncate transition-all",
+            open && "text-fd-foreground",
+            showItem && "opacity-0 -translate-y-full pointer-events-none",
           )}
         >
           {path?.name ?? text.toc}
         </span>
         <span
           className={cn(
-            'truncate transition-all',
-            !showItem && 'opacity-0 translate-y-full pointer-events-none',
+            "truncate transition-all",
+            !showItem && "opacity-0 translate-y-full pointer-events-none",
           )}
         >
           {items[selected]?.title}
@@ -82,8 +84,8 @@ export function PageTOCPopoverTrigger(props: ComponentProps<'button'>) {
       </span>
       <ChevronDown
         className={cn(
-          'shrink-0 transition-transform mx-0.5',
-          open && 'rotate-180',
+          "shrink-0 transition-transform mx-0.5",
+          open && "rotate-180",
         )}
       />
     </CollapsibleTrigger>
@@ -91,7 +93,7 @@ export function PageTOCPopoverTrigger(props: ComponentProps<'button'>) {
 }
 
 interface ProgressCircleProps
-  extends Omit<React.ComponentProps<'svg'>, 'strokeWidth'> {
+  extends Omit<React.ComponentProps<"svg">, "strokeWidth"> {
   value: number;
   strokeWidth?: number;
   size?: number;
@@ -121,7 +123,7 @@ function ProgressCircle({
     cx: size / 2,
     cy: size / 2,
     r: radius,
-    fill: 'none',
+    fill: "none",
     strokeWidth,
   };
 
@@ -148,19 +150,19 @@ function ProgressCircle({
   );
 }
 
-export function PageTOCPopoverContent(props: ComponentProps<'div'>) {
+export function PageTOCPopoverContent(props: ComponentProps<"div">) {
   return (
     <CollapsibleContent
       data-toc-popover=""
       {...props}
-      className={cn('flex flex-col px-4 max-h-[50vh] md:px-6', props.className)}
+      className={cn("flex flex-col px-4 max-h-[50vh] md:px-6", props.className)}
     >
       {props.children}
     </CollapsibleContent>
   );
 }
 
-export function PageTOCPopover(props: ComponentProps<'div'>) {
+export function PageTOCPopover(props: ComponentProps<"div">) {
   const ref = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const { collapsed } = useSidebar();
@@ -174,21 +176,21 @@ export function PageTOCPopover(props: ComponentProps<'div'>) {
   });
 
   useEffect(() => {
-    window.addEventListener('click', onClick);
+    window.addEventListener("click", onClick);
 
     return () => {
-      window.removeEventListener('click', onClick);
+      window.removeEventListener("click", onClick);
     };
   }, []);
 
   return (
-    <TocPopoverContext.Provider
+    <TocPopoverContext
       value={useMemo(
         () => ({
           open,
           setOpen,
         }),
-        [setOpen, open],
+        [open],
       )}
     >
       <Collapsible open={open} onOpenChange={setOpen} asChild>
@@ -197,33 +199,33 @@ export function PageTOCPopover(props: ComponentProps<'div'>) {
           id="nd-tocnav"
           {...props}
           className={cn(
-            'fixed pr-(--removed-body-scroll-bar-size,0) z-10 border-b backdrop-blur-sm transition-colors xl:hidden max-xl:on-root:[--fd-tocnav-height:40px]',
-            (!isTransparent || open) && 'bg-fd-background/80',
-            open && 'shadow-lg',
+            "fixed pr-(--removed-body-scroll-bar-size,0) z-10 border-b backdrop-blur-sm transition-colors xl:hidden max-xl:on-root:[--fd-tocnav-height:40px]",
+            (!isTransparent || open) && "bg-fd-background/80",
+            open && "shadow-lg",
             props.className,
           )}
           style={{
             ...props.style,
-            top: 'calc(var(--fd-banner-height) + var(--fd-nav-height))',
+            top: "calc(var(--fd-banner-height) + var(--fd-nav-height))",
             insetInlineStart: collapsed
-              ? '0px'
-              : 'calc(var(--fd-sidebar-width) + var(--fd-layout-offset))',
+              ? "0px"
+              : "calc(var(--fd-sidebar-width) + var(--fd-layout-offset))",
             insetInlineEnd: 0,
           }}
         >
           {props.children}
         </header>
       </Collapsible>
-    </TocPopoverContext.Provider>
+    </TocPopoverContext>
   );
 }
 
 export function PageLastUpdate({
   date: value,
   ...props
-}: Omit<ComponentProps<'p'>, 'children'> & { date: Date | string }) {
+}: Omit<ComponentProps<"p">, "children"> & { date: Date | string }) {
   const { text } = useI18n();
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     // to the timezone of client
@@ -233,15 +235,15 @@ export function PageLastUpdate({
   return (
     <p
       {...props}
-      className={cn('text-sm text-fd-muted-foreground', props.className)}
+      className={cn("text-sm text-fd-muted-foreground", props.className)}
     >
       {text.lastUpdate} {date}
     </p>
   );
 }
 
-type Item = Pick<PageTree.Item, 'name' | 'description' | 'url'>;
-export interface FooterProps extends ComponentProps<'div'> {
+type Item = Pick<PageTree.Item, "name" | "description" | "url">;
+export interface FooterProps extends ComponentProps<"div"> {
   /**
    * Items including information for the next and previous page
    */
@@ -255,7 +257,7 @@ function scanNavigationList(tree: PageTree.Node[]) {
   const list: PageTree.Item[] = [];
 
   tree.forEach((node) => {
-    if (node.type === 'folder') {
+    if (node.type === "folder") {
       if (node.index) {
         list.push(node.index);
       }
@@ -264,7 +266,7 @@ function scanNavigationList(tree: PageTree.Node[]) {
       return;
     }
 
-    if (node.type === 'page' && !node.external) {
+    if (node.type === "page" && !node.external) {
       list.push(node);
     }
   });
@@ -298,8 +300,8 @@ export function PageFooter({ items, ...props }: FooterProps) {
     <div
       {...props}
       className={cn(
-        '@container grid gap-4 pb-6',
-        previous && next ? 'grid-cols-2' : 'grid-cols-1',
+        "@container grid gap-4 pb-6",
+        previous && next ? "grid-cols-2" : "grid-cols-1",
         props.className,
       )}
     >
@@ -317,14 +319,14 @@ function FooterItem({ item, index }: { item: Item; index: 0 | 1 }) {
     <Link
       href={item.url}
       className={cn(
-        'flex flex-col gap-2 rounded-lg border p-4 text-sm transition-colors hover:bg-fd-accent/80 hover:text-fd-accent-foreground @max-lg:col-span-full',
-        index === 1 && 'text-end',
+        "flex flex-col gap-2 rounded-lg border p-4 text-sm transition-colors hover:bg-fd-accent/80 hover:text-fd-accent-foreground @max-lg:col-span-full",
+        index === 1 && "text-end",
       )}
     >
       <div
         className={cn(
-          'inline-flex items-center gap-1.5 font-medium',
-          index === 1 && 'flex-row-reverse',
+          "inline-flex items-center gap-1.5 font-medium",
+          index === 1 && "flex-row-reverse",
         )}
       >
         <Icon className="-mx-1 size-4 shrink-0 rtl:rotate-180" />
@@ -337,7 +339,7 @@ function FooterItem({ item, index }: { item: Item; index: 0 | 1 }) {
   );
 }
 
-export type BreadcrumbProps = BreadcrumbOptions & ComponentProps<'div'>;
+export type BreadcrumbProps = BreadcrumbOptions & ComponentProps<"div">;
 
 export function PageBreadcrumb({
   includeRoot,
@@ -361,23 +363,24 @@ export function PageBreadcrumb({
     <div
       {...props}
       className={cn(
-        'flex items-center gap-1.5 text-sm text-fd-muted-foreground',
+        "flex items-center gap-1.5 text-sm text-fd-muted-foreground",
         props.className,
       )}
     >
       {items.map((item, i) => {
         const className = cn(
-          'truncate',
-          i === items.length - 1 && 'text-fd-primary font-medium',
+          "truncate",
+          i === items.length - 1 && "text-fd-primary font-medium",
         );
 
         return (
+          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
           <Fragment key={i}>
             {i !== 0 && <ChevronRight className="size-3.5 shrink-0" />}
             {item.url ? (
               <Link
                 href={item.url}
-                className={cn(className, 'transition-opacity hover:opacity-80')}
+                className={cn(className, "transition-opacity hover:opacity-80")}
               >
                 {item.name}
               </Link>
@@ -391,21 +394,21 @@ export function PageBreadcrumb({
   );
 }
 
-export function PageTOC(props: ComponentProps<'div'>) {
+export function PageTOC(props: ComponentProps<"div">) {
   const { collapsed } = useSidebar();
-  const offset = collapsed ? '0px' : 'var(--fd-layout-offset)';
+  const offset = collapsed ? "0px" : "var(--fd-layout-offset)";
 
   return (
     <div
       id="nd-toc"
       {...props}
       className={cn(
-        'fixed bottom-0 pt-12 pb-2 pr-(--removed-body-scroll-bar-size,0) max-xl:hidden',
+        "fixed bottom-0 pt-12 pb-2 pr-(--removed-body-scroll-bar-size,0) xl:on-root:[--fd-toc-width:286px] max-xl:hidden",
         props.className,
       )}
       style={{
         ...props.style,
-        top: 'calc(var(--fd-banner-height) + var(--fd-nav-height))',
+        top: "calc(var(--fd-banner-height) + var(--fd-nav-height))",
         insetInlineEnd: `max(${offset}, calc(50vw - var(--fd-sidebar-width)/2 - var(--fd-page-width)/2))`,
       }}
     >
