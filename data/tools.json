@@ -90,13 +90,6 @@
       "url": "https://ui.shadcn.com/",
       "icon": "Palette",
       "tags": ["UI", "Open source"]
-    },
-    {
-      "title":"lazygit",
-      "description": "Lazygit is a simple terminal UI for git commands.",
-      "url": "https://github.com/jesseduffield/lazygit",
-      "icon": "Code",
-      "tags": ["Git", "Open source"]
     }
   ],
   "unused": [
